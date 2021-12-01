@@ -23,8 +23,13 @@
     <LangVersion>latest</LangVersion> <!-- Ensure all projects use the latest language version -->
     <Nullable>enable</Nullable> <!-- Turn on nullable-reference-type analysis -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-  </PropertyGroup>
+  
+  <!-- Analyzer settings  -->
+  <ItemGroup>
+    <GlobalAnalyzerConfigFiles Condition="'$(Configuration)'=='Release'"
+                               Include="$(MSBuildThisFileDirectory)eng\globalconfigs\Release.globalconfig" />
+    <GlobalAnalyzerConfigFiles Condition="'$(Configuration)'=='Debug'"
+                               Include="$(MSBuildThisFileDirectory)eng\globalconfigs\Debug.globalconfig" />
+  </ItemGroup>
 
 </Project>
