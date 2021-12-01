@@ -23,5 +23,8 @@
     <LangVersion>latest</LangVersion> <!-- Ensure all projects use the latest language version -->
     <Nullable>enable</Nullable> <!-- Turn on nullable-reference-type analysis -->
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+  </PropertyGroup>
 
 </Project>
